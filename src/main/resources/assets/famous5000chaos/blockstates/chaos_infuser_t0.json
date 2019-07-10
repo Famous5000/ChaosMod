@@ -1,0 +1,11 @@
+{
+	"forge_marker" : 1,
+	"defaults"     : {
+		"model" : "famous5000chaos:chaos_infuser_t0"
+	},
+	"variants"     : {
+		"normal" : [
+			{ }
+		]
+	}
+}

@@ -1,6 +1,8 @@
 package com.famous5000.chaos
 
 import net.minecraftforge.fml.common.Mod
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
+import net.minecraftforge.fml.common.network.NetworkRegistry
 
 @Suppress("unused")
 @Mod(
@@ -10,4 +12,18 @@ import net.minecraftforge.fml.common.Mod
 	modLanguageAdapter = "net.shadowfacts.forgelin.KotlinAdapter",
 	dependencies = "required-before:forgelin"
 )
-object Chaos
+object Chaos {
+	val networkChannel = NetworkRegistry.INSTANCE.newSimpleChannel(modid)!!
+
+	enum class NetworkDiscriminators {
+		ChaosEnergyStorage
+	}
+
+	@JvmStatic
+	@Mod.EventHandler
+	fun onPreInit(event: FMLPreInitializationEvent) {
+		logger = event.modLog
+
+		Registry.onPreInit(event)
+	}
+}

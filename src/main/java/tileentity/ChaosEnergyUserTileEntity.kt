@@ -1,3 +1,0 @@
-package com.famous5000.chaos.tileentity
-
-class ChaosEnergyUserTileEntity
