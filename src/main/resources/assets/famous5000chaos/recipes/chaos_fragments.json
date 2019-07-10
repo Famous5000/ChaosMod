@@ -1,0 +1,12 @@
+{
+	"type"        : "minecraft:crafting_shapeless",
+	"ingredients" : [
+		{
+			"item" : "famous5000chaos:chaos_star"
+		}
+	],
+	"result"      : {
+		"item"  : "famous5000chaos:chaos_fragment",
+		"count" : 4
+	}
+}

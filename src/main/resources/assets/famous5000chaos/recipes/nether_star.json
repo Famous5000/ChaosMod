@@ -1,0 +1,19 @@
+{
+	"type"    : "minecraft:crafting_shaped",
+	"pattern" : [
+		" H ",
+		"HSH",
+		" H "
+	],
+	"key"     : {
+		"H" : {
+			"item" : "famous5000chaos:chaos_fragment"
+		},
+		"S" : {
+			"item" : "famous5000chaos:chaos_star"
+		}
+	},
+	"result"  : {
+		"item" : "minecraft:nether_star"
+	}
+}
