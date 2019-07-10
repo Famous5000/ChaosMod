@@ -1,0 +1,6 @@
+{
+	"parent"   : "famous5000chaos:item/chaos_fragment",
+	"textures" : {
+		"layer0" : "famous5000chaos:items/chaos_fragment_1"
+	}
+}

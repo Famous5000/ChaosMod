@@ -1,0 +1,9 @@
+{
+	"parent"   : "item/generated",
+	"overrides": [
+		{"predicate": {"famous5000chaos:chaos_fragment_1": 1}, "model": "famous5000chaos:item/chaos_fragments/chaos_fragment_1"},
+		{"predicate": {"famous5000chaos:chaos_fragment_2": 1}, "model": "famous5000chaos:item/chaos_fragments/chaos_fragment_2"},
+		{"predicate": {"famous5000chaos:chaos_fragment_3": 1}, "model": "famous5000chaos:item/chaos_fragments/chaos_fragment_3"},
+		{"predicate": {"famous5000chaos:chaos_fragment_4": 1}, "model": "famous5000chaos:item/chaos_fragments/chaos_fragment_4"}
+	]
+}

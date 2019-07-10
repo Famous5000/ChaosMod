@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "famous5000chaos:chaos_fragment"
+    }
+  ],
+  "result":
+  {
+    "item": "famous5000chaos:chaos_shard",
+    "count": 4,
+    "data": 0
+  }
+}
