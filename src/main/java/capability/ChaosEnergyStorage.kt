@@ -13,11 +13,13 @@ open class ChaosEnergyStorage : IChaosEnergyStorage {
 			CapabilityManager.INSTANCE.register(
 				IChaosEnergyStorage::class.java,
 				object : Capability.IStorage<IChaosEnergyStorage> {
-					override fun writeNBT(capability: Capability<IChaosEnergyStorage>?, instance: IChaosEnergyStorage?, side: EnumFacing?): NBTBase? {
+					override fun writeNBT(capability: Capability<IChaosEnergyStorage>?,
+					                      instance: IChaosEnergyStorage?, side: EnumFacing?): NBTBase? {
 						return instance?.serializeNBT()
 					}
 
-					override fun readNBT(capability: Capability<IChaosEnergyStorage>?, instance: IChaosEnergyStorage?, side: EnumFacing?, nbt: NBTBase?) {
+					override fun readNBT(capability: Capability<IChaosEnergyStorage>?,
+					                     instance: IChaosEnergyStorage?, side: EnumFacing?, nbt: NBTBase?) {
 						if (nbt is NBTTagCompound) {
 							instance?.deserializeNBT(nbt)
 						}

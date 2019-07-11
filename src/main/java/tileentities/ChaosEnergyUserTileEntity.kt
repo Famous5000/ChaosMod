@@ -78,7 +78,8 @@ open class ChaosEnergyUserTileEntity : TileEntity(), ITickable {
 						val tileEntity = world.getTileEntity(message.blockPos)
 
 						if (tileEntity is ChaosEnergyUserTileEntity) {
-							val chaosEnergyStorage = tileEntity.getCapability(capChaosEnergyStorage, null)!!
+							val chaosEnergyStorage =
+								tileEntity.getCapability(capChaosEnergyStorage, null)!!
 
 							chaosEnergyStorage.chaosEnergyStored = message.chaosEnergyStored
 							chaosEnergyStorage.chaosEnergyCapacity = message.chaosEnergyCapacity
@@ -94,7 +95,12 @@ open class ChaosEnergyUserTileEntity : TileEntity(), ITickable {
 	override fun onLoad() {
 		super.onLoad()
 
-		networkChannel.registerMessage(ChaosEnergyStorageMessageHandler::class.java, ChaosEnergyStorageMessage::class.java, Chaos.NetworkDiscriminators.ChaosEnergyStorage.ordinal, Side.CLIENT)
+		networkChannel.registerMessage(
+			ChaosEnergyStorageMessageHandler::class.java,
+			ChaosEnergyStorageMessage::class.java,
+			Chaos.NetworkDiscriminators.ChaosEnergyStorage.ordinal,
+			Side.CLIENT
+		)
 
 		if (!world.isRemote) {
 			updateEnergyVariables()
@@ -102,7 +108,9 @@ open class ChaosEnergyUserTileEntity : TileEntity(), ITickable {
 	}
 
 	override fun update() {
-		if (!world.isRemote && chaosEnergyStorage.chaosEnergyStored != chaosEnergyStored || chaosEnergyStorage.chaosEnergyCapacity != chaosEnergyCapacity) {
+		if (!world.isRemote &&
+		    chaosEnergyStorage.chaosEnergyStored != chaosEnergyStored ||
+		    chaosEnergyStorage.chaosEnergyCapacity != chaosEnergyCapacity) {
 			updateEnergyVariables()
 		}
 	}

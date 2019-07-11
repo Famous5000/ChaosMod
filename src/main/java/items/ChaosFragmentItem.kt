@@ -13,7 +13,9 @@ object ChaosFragmentItem : Item() {
 		creativeTab = ChaosTab
 		maxStackSize = 4
 
-		this.addPropertyOverride(ResourceLocation(modid, "chaos_fragment")) { stack, _, _ -> stack.count / 4F }
+		this.addPropertyOverride(
+			ResourceLocation(modid, "chaos_fragment")
+		) { stack, _, _ -> stack.count / 4F }
 	}
 
 	override fun hasEffect(stack: ItemStack?) = true
