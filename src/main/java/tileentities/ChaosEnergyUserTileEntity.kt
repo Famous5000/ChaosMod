@@ -84,7 +84,7 @@ open class ChaosEnergyUserTileEntity(
 
 			minecraft.addScheduledTask {
 				if (message !is ChaosEnergyStorageMessage || message.identifier != 1 ||
-				    world.isBlockLoaded(message.blockPos)) return@addScheduledTask
+				    !world.isBlockLoaded(message.blockPos)) return@addScheduledTask
 
 				(world.getTileEntity(message.blockPos) as? ChaosEnergyUserTileEntity)
 					?.getCapability(capChaosEnergyStorage, null)
