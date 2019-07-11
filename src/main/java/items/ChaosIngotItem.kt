@@ -2,6 +2,7 @@ package com.famous5000.chaos.items
 
 import com.famous5000.chaos.ChaosTab
 import com.famous5000.chaos.enums.ChaosTier
+import com.famous5000.chaos.interfaces.IItemHasChaosTier
 import com.famous5000.chaos.interfaces.IItemHasSubtypes
 import com.famous5000.chaos.modid
 import net.minecraft.creativetab.CreativeTabs
@@ -11,7 +12,7 @@ import net.minecraft.item.ItemStack
 import net.minecraft.util.NonNullList
 import net.minecraft.util.ResourceLocation
 
-object ChaosIngotItem : Item(), IItemHasSubtypes {
+object ChaosIngotItem : Item(), IItemHasSubtypes, IItemHasChaosTier {
 	init {
 		unlocalizedName = "$modid.chaos_ingot"
 		registryName = ResourceLocation(modid, "chaos_ingot")
@@ -19,13 +20,11 @@ object ChaosIngotItem : Item(), IItemHasSubtypes {
 		creativeTab = ChaosTab
 	}
 
-	override fun getRarity(stack: ItemStack): EnumRarity =
-		when (stack.metadata) {
-			0, 1 -> EnumRarity.UNCOMMON
-			2, 3 -> EnumRarity.RARE
-			4, 5 -> EnumRarity.EPIC
-			else -> EnumRarity.COMMON
-		}
+	override fun getChaosTier(itemStack: ItemStack): ChaosTier {
+		return ChaosTier.values().find { it.ordinal == itemStack.metadata }!!
+	}
+
+	override fun getRarity(stack: ItemStack): EnumRarity = getChaosTier(stack).rarity
 
 	override fun getUnlocalizedName(stack: ItemStack): String {
 		return super.getUnlocalizedName() + "_t${stack.metadata}"

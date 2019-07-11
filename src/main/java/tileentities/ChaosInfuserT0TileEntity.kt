@@ -1,3 +1,5 @@
 package com.famous5000.chaos.tileentities
 
-class ChaosInfuserT0TileEntity : ChaosEnergyUserTileEntity()
+import com.famous5000.chaos.enums.ChaosTier
+
+class ChaosInfuserT0TileEntity : ChaosEnergyUserTileEntity(ChaosTier.T0)

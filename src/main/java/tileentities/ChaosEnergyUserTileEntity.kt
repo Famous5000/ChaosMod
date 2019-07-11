@@ -4,6 +4,8 @@ import com.famous5000.chaos.Chaos
 import com.famous5000.chaos.Chaos.networkChannel
 import com.famous5000.chaos.capability.ChaosEnergyStorage
 import com.famous5000.chaos.capability.IChaosEnergyStorage
+import com.famous5000.chaos.enums.ChaosTier
+import com.famous5000.chaos.interfaces.ITileEntityHasChaosTier
 import com.famous5000.chaos.interfaces.IWailaDataProvider
 import com.famous5000.chaos.messages.ChaosEnergyStorageMessage
 import mcp.mobius.waila.api.IWailaConfigHandler
@@ -22,7 +24,9 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext
 import net.minecraftforge.fml.relauncher.Side
 
-open class ChaosEnergyUserTileEntity : TileEntity(), ITickable, IWailaDataProvider {
+open class ChaosEnergyUserTileEntity(
+	private val chaosTier: ChaosTier
+) : TileEntity(), ITickable, IWailaDataProvider, ITileEntityHasChaosTier {
 	companion object {
 		@JvmStatic
 		@CapabilityInject(IChaosEnergyStorage::class)
@@ -125,4 +129,6 @@ open class ChaosEnergyUserTileEntity : TileEntity(), ITickable, IWailaDataProvid
 
 		return tooltip
 	}
+
+	override fun getChaosTier(): ChaosTier = chaosTier
 }

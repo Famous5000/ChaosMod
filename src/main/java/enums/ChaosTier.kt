@@ -1,10 +1,13 @@
 package com.famous5000.chaos.enums
 
-enum class ChaosTier {
-	T0,
-	T1,
-	T2,
-	T3,
-	T4,
-	T5
+import com.famous5000.chaos.LegendaryTier
+import net.minecraft.item.EnumRarity
+
+enum class ChaosTier(val rarity: EnumRarity) {
+	T0(EnumRarity.UNCOMMON),
+	T1(EnumRarity.RARE),
+	T2(EnumRarity.RARE),
+	T3(EnumRarity.EPIC),
+	T4(EnumRarity.EPIC),
+	T5(LegendaryTier)
 }
