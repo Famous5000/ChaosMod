@@ -2,6 +2,7 @@ package com.famous5000.chaos
 
 import com.famous5000.chaos.blocks.ChaosInfuserT0Block
 import com.famous5000.chaos.capability.ChaosEnergyStorage
+import com.famous5000.chaos.interfaces.IItemHasSubtypes
 import com.famous5000.chaos.items.ChaosFragmentItem
 import com.famous5000.chaos.items.ChaosInfuserT0ItemBlock
 import com.famous5000.chaos.items.ChaosStarItem
@@ -74,11 +75,22 @@ object Registry {
 		for (index in items.indices) {
 			val item = items[index]
 
-			val resourceLocation = item.registryName as ResourceLocation
-			val modelResourceLocation = ModelResourceLocation(resourceLocation, "inventory")
+			if (item is IItemHasSubtypes) {
+				for ((metadata, resourceLocation) in item.getAllModels()) {
+					registerModel(item, metadata, resourceLocation)
+				}
+			} else {
+				val resourceLocation = item.registryName as ResourceLocation
 
-			ModelLoader.setCustomModelResourceLocation(item, 0, modelResourceLocation)
+				registerModel(item, 0, resourceLocation)
+			}
 		}
+	}
+
+	private fun registerModel(item: Item, metadata: Int, resourceLocation: ResourceLocation) {
+		val modelResourceLocation = ModelResourceLocation(resourceLocation, "inventory")
+
+		ModelLoader.setCustomModelResourceLocation(item, metadata, modelResourceLocation)
 	}
 
 	@Suppress("unused_parameter")
