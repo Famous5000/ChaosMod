@@ -15,13 +15,7 @@ class WailaIntegration : IWailaPlugin, mcp.mobius.waila.api.IWailaDataProvider {
 	}
 
 	override fun getWailaBody(itemStack: ItemStack, tooltip: MutableList<String>,
-	                          accessor: IWailaDataAccessor, config: IWailaConfigHandler): MutableList<String> {
-		val tileEntity = accessor.tileEntity
-
-		if (tileEntity is IWailaDataProvider) {
-			return tileEntity.getWailaBody(itemStack, tooltip, accessor, config)
-		}
-
-		return tooltip
-	}
+	                          accessor: IWailaDataAccessor, config: IWailaConfigHandler): MutableList<String> =
+		(accessor.tileEntity as? IWailaDataProvider)?.getWailaBody(itemStack, tooltip, accessor, config)
+		?: tooltip
 }
