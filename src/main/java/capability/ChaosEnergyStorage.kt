@@ -76,4 +76,8 @@ open class ChaosEnergyStorage : IChaosEnergyStorage {
 			chaosEnergyStored = nbt.getInteger("chaosEnergyStored")
 		}
 	}
+
+	override fun toString(): String {
+		return "$chaosEnergyStored/$chaosEnergyCapacity"
+	}
 }

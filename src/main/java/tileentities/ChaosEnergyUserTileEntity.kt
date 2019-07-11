@@ -4,8 +4,12 @@ import com.famous5000.chaos.Chaos
 import com.famous5000.chaos.Chaos.networkChannel
 import com.famous5000.chaos.capability.ChaosEnergyStorage
 import com.famous5000.chaos.capability.IChaosEnergyStorage
+import com.famous5000.chaos.interfaces.IWailaDataProvider
 import com.famous5000.chaos.messages.ChaosEnergyStorageMessage
+import mcp.mobius.waila.api.IWailaConfigHandler
+import mcp.mobius.waila.api.IWailaDataAccessor
 import net.minecraft.client.Minecraft
+import net.minecraft.item.ItemStack
 import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.tileentity.TileEntity
 import net.minecraft.util.EnumFacing
@@ -18,7 +22,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext
 import net.minecraftforge.fml.relauncher.Side
 
-open class ChaosEnergyUserTileEntity : TileEntity(), ITickable {
+open class ChaosEnergyUserTileEntity : TileEntity(), ITickable, IWailaDataProvider {
 	companion object {
 		@JvmStatic
 		@CapabilityInject(IChaosEnergyStorage::class)
@@ -113,5 +117,12 @@ open class ChaosEnergyUserTileEntity : TileEntity(), ITickable {
 		    chaosEnergyStorage.chaosEnergyCapacity != chaosEnergyCapacity) {
 			updateEnergyVariables()
 		}
+	}
+
+	override fun getWailaBody(itemStack: ItemStack, tooltip: MutableList<String>, accessor: IWailaDataAccessor,
+	                          config: IWailaConfigHandler): MutableList<String> {
+		tooltip.add("Chaos Energy: $chaosEnergyStorage")
+
+		return tooltip
 	}
 }
