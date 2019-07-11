@@ -9,7 +9,7 @@ import net.minecraft.util.ResourceLocation
 
 object ChaosStarItem : Item() {
 	init {
-		unlocalizedName = "chaos_star"
+		unlocalizedName = "$modid.chaos_star"
 		registryName = ResourceLocation(modid, "chaos_star")
 		creativeTab = ChaosTab
 	}

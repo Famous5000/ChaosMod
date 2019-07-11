@@ -8,7 +8,7 @@ import net.minecraft.util.ResourceLocation
 
 object ChaosFragmentItem : Item() {
 	init {
-		unlocalizedName = "chaos_fragment"
+		unlocalizedName = "$modid.chaos_fragment"
 		registryName = ResourceLocation(modid, "chaos_fragment")
 		creativeTab = ChaosTab
 		maxStackSize = 4
