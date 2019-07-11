@@ -80,20 +80,18 @@ open class ChaosEnergyUserTileEntity(
 			val minecraft = Minecraft.getMinecraft()
 			val world = minecraft.world
 
-			if (world.isRemote) {
-				minecraft.addScheduledTask {
-					if (message!!.identifier == 1 && world.isBlockLoaded(message.blockPos)) {
-						val tileEntity = world.getTileEntity(message.blockPos)
+			if (!world.isRemote) return null
 
-						if (tileEntity is ChaosEnergyUserTileEntity) {
-							val chaosEnergyStorage =
-								tileEntity.getCapability(capChaosEnergyStorage, null)!!
+			minecraft.addScheduledTask {
+				if (message !is ChaosEnergyStorageMessage || message.identifier != 1 ||
+				    world.isBlockLoaded(message.blockPos)) return@addScheduledTask
 
-							chaosEnergyStorage.chaosEnergyStored = message.chaosEnergyStored
-							chaosEnergyStorage.chaosEnergyCapacity = message.chaosEnergyCapacity
-						}
+				(world.getTileEntity(message.blockPos) as? ChaosEnergyUserTileEntity)
+					?.getCapability(capChaosEnergyStorage, null)
+					?.let {
+						it.chaosEnergyStored = message.chaosEnergyStored
+						it.chaosEnergyCapacity = message.chaosEnergyStored
 					}
-				}
 			}
 
 			return null
