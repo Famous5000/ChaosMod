@@ -10,7 +10,8 @@ import net.minecraftforge.fml.common.network.NetworkRegistry
 	name = name,
 	version = version,
 	modLanguageAdapter = "net.shadowfacts.forgelin.KotlinAdapter",
-	dependencies = "required-before:forgelin"
+	dependencies = "required-before:forgelin@[1.6.0,);" +
+	               "after:waila@[1.8.26,)"
 )
 object Chaos {
 	val networkChannel = NetworkRegistry.INSTANCE.newSimpleChannel(modid)!!
