@@ -3,6 +3,7 @@
 	"parent": "block/block",
 	"textures": {
 		"stone_slab_top": "blocks/stone_slab_top",
+		"particle": "blocks/stone_slab_top",
 		"claws": "famous5000chaos:blocks/chaos_infuser_t0_claws"
 	},
 	"elements": [
