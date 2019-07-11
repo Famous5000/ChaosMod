@@ -1,24 +1,24 @@
 package com.famous5000.chaos.integrations
 
+import com.famous5000.chaos.interfaces.IWailaDataProvider
 import com.famous5000.chaos.logger
-import com.famous5000.chaos.tileentities.ChaosEnergyUserTileEntity
 import mcp.mobius.waila.api.*
 import net.minecraft.item.ItemStack
 
 @Suppress("unused")
 @WailaPlugin
-class WailaIntegration : IWailaPlugin, IWailaDataProvider {
+class WailaIntegration : IWailaPlugin, mcp.mobius.waila.api.IWailaDataProvider {
 	override fun register(registrar: IWailaRegistrar) {
-		logger.info("Registering HWYLA plugin!")
+		logger.info("Registering WAILA plugin!")
 
-		registrar.registerBodyProvider(this, ChaosEnergyUserTileEntity::class.java)
+		registrar.registerBodyProvider(this, IWailaDataProvider::class.java)
 	}
 
 	override fun getWailaBody(itemStack: ItemStack, tooltip: MutableList<String>,
 	                          accessor: IWailaDataAccessor, config: IWailaConfigHandler): MutableList<String> {
 		val tileEntity = accessor.tileEntity
 
-		if (tileEntity is ChaosEnergyUserTileEntity) {
+		if (tileEntity is IWailaDataProvider) {
 			return tileEntity.getWailaBody(itemStack, tooltip, accessor, config)
 		}
 
