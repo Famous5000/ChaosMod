@@ -1,14 +1,14 @@
 [{
-  "modid": "famous5000chaos",
-  "name": "Chaos",
-  "description": "With the power of Chaos, you can rule the world!",
-  "version": "U.0.0_0",
-  "mcversion": "1.12.2",
-  "updateUrl": "",
-  "authorList": ["Famous5000"],
-  "credits": "Forgelin",
-  "logoFile": "",
-  "screenshots": [],
-  "requiredMods": ["forgelin"],
-  "dependencies": ["forgelin"]
+	"modid": "famous5000chaos",
+	"name": "Chaos",
+	"description": "With the power of Chaos, you can rule the world!",
+	"version": "U.0.0_0",
+	"mcversion": "1.12.2",
+	"updateUrl": "",
+	"authorList": ["Famous5000", "LoganDark"],
+	"credits": "Forgelin",
+	"logoFile": "",
+	"screenshots": [],
+	"requiredMods": ["forgelin"],
+	"dependencies": ["forgelin", "waila"]
 }]
