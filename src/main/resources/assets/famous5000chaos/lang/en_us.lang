@@ -1,4 +1,12 @@
-item.famous5000chaos.chaos_star.name=Chaos Star
-item.famous5000chaos.chaos_fragment.name=Chaos Fragment
 itemGroup.chaos=Chaos
+
+item.chaos_star.name=Chaos Star
+item.chaos_fragment.name=Chaos Fragment
+item.famous5000chaos.chaos_ingot_t0.name=Chaos Ingot (Tier 0)
+item.famous5000chaos.chaos_ingot_t1.name=Chaos Ingot (Tier 1)
+item.famous5000chaos.chaos_ingot_t2.name=Chaos Ingot (Tier 2)
+item.famous5000chaos.chaos_ingot_t3.name=Chaos Ingot (Tier 3)
+item.famous5000chaos.chaos_ingot_t4.name=Chaos Ingot (Tier 4)
+item.famous5000chaos.chaos_ingot_t5.name=Chaos Ingot (Tier 5)
+
 tile.famous5000chaos.chaos_infuser_t0.name=Chaos Infuser (Tier 0)

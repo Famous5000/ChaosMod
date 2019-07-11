@@ -1,0 +1,6 @@
+{
+	"parent"   : "item/generated",
+	"textures" : {
+		"layer0" : "famous5000chaos:items/chaos_ingots/chaos_ingot_t0"
+	}
+}

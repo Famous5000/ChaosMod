@@ -5,6 +5,7 @@ import com.famous5000.chaos.capability.ChaosEnergyStorage
 import com.famous5000.chaos.interfaces.IItemHasSubtypes
 import com.famous5000.chaos.items.ChaosFragmentItem
 import com.famous5000.chaos.items.ChaosInfuserT0ItemBlock
+import com.famous5000.chaos.items.ChaosIngotItem
 import com.famous5000.chaos.items.ChaosStarItem
 import com.famous5000.chaos.tileentities.ChaosInfuserT0TileEntity
 import net.minecraft.block.Block
@@ -26,7 +27,8 @@ object Registry {
 		arrayListOf(
 			ChaosStarItem,
 			ChaosFragmentItem,
-			ChaosInfuserT0ItemBlock
+			ChaosInfuserT0ItemBlock,
+			ChaosIngotItem
 		)
 	}
 
