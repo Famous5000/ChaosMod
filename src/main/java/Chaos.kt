@@ -1,5 +1,6 @@
 package com.famous5000.chaos
 
+import com.famous5000.chaos.subscribers.ChaosRegistry
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 import net.minecraftforge.fml.common.network.NetworkRegistry
@@ -25,6 +26,6 @@ object Chaos {
 	fun onPreInit(event: FMLPreInitializationEvent) {
 		logger = event.modLog
 
-		Registry.onPreInit(event)
+		ChaosRegistry.onPreInit(event)
 	}
 }

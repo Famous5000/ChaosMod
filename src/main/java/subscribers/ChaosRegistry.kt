@@ -1,10 +1,11 @@
-package com.famous5000.chaos
+package com.famous5000.chaos.subscribers
 
 import com.famous5000.chaos.blocks.ChaosBlock
 import com.famous5000.chaos.blocks.ChaosInfuserT0Block
 import com.famous5000.chaos.capability.ChaosEnergyStorage
 import com.famous5000.chaos.interfaces.IItemHasSubtypes
 import com.famous5000.chaos.items.*
+import com.famous5000.chaos.modid
 import com.famous5000.chaos.tileentities.ChaosInfuserT0TileEntity
 import net.minecraft.block.Block
 import net.minecraft.client.renderer.block.model.ModelResourceLocation
@@ -20,7 +21,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry
 
 @Suppress("unused")
 @Mod.EventBusSubscriber(modid = modid)
-object Registry {
+object ChaosRegistry {
 	private val items by lazy {
 		arrayListOf(
 			ChaosStarItem,
