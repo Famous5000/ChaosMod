@@ -1,0 +1,14 @@
+{
+	"type"        : "minecraft:crafting_shapeless",
+	"ingredients" : [
+		{
+			"item" : "famous5000chaos:chaos_ingot",
+			"data" : 0
+		}
+	],
+	"result"      : {
+		"item"  : "famous5000chaos:chaos_nugget",
+		"data"  : 0,
+		"count" : 9
+	}
+}

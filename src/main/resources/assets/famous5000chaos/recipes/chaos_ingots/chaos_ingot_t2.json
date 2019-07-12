@@ -1,0 +1,21 @@
+{
+	"type"    : "minecraft:crafting_shaped",
+	"pattern" : [
+		"III",
+		"ISI",
+		"III"
+	],
+	"key"     : {
+		"I" : {
+			"item" : "famous5000chaos:chaos_ingot",
+			"data" : 0
+		},
+		"S" : {
+			"item" : "minecraft:nether_star"
+		}
+	},
+	"result"  : {
+		"item" : "famous5000chaos:chaos_ingot",
+		"data" : 2
+	}
+}

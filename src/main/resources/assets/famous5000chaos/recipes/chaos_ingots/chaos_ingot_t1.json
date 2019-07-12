@@ -1,0 +1,20 @@
+{
+	"type"    : "minecraft:crafting_shaped",
+	"pattern" : [
+		"III",
+		"ISI",
+		"III"
+	],
+	"key"     : {
+		"I" : {
+			"item" : "minecraft:gold_ingot"
+		},
+		"S" : {
+			"item" : "famous5000chaos:chaos_star"
+		}
+	},
+	"result"  : {
+		"item" : "famous5000chaos:chaos_ingot",
+		"data" : 1
+	}
+}
