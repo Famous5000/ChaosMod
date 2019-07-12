@@ -47,7 +47,7 @@ open class ChaosEnergyUserTileEntity(
 						?.getCapability(capChaosEnergyStorage, null)
 						?.let {
 							it.chaosEnergyStored = message.chaosEnergyStored
-							it.chaosEnergyCapacity = message.chaosEnergyStored
+							it.chaosEnergyCapacity = message.chaosEnergyCapacity
 						}
 				}
 
