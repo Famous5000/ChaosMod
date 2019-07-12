@@ -1,0 +1,25 @@
+{
+	"forge_marker" : 1,
+	"variants"     : {
+		"chaos_tier" : {
+			"t0" : {
+				"model" : "famous5000chaos:chaos_blocks/chaos_block_t0"
+			},
+			"t1" : {
+				"model" : "famous5000chaos:chaos_blocks/chaos_block_t1"
+			},
+			"t2" : {
+				"model" : "famous5000chaos:chaos_blocks/chaos_block_t2"
+			},
+			"t3" : {
+				"model" : "famous5000chaos:chaos_blocks/chaos_block_t3"
+			},
+			"t4" : {
+				"model" : "famous5000chaos:chaos_blocks/chaos_block_t4"
+			},
+			"t5" : {
+				"model" : "famous5000chaos:chaos_blocks/chaos_block_t5"
+			}
+		}
+	}
+}

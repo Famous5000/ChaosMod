@@ -31,6 +31,38 @@ open class ChaosEnergyUserTileEntity(
 		@JvmStatic
 		@CapabilityInject(IChaosEnergyStorage::class)
 		lateinit var capChaosEnergyStorage: Capability<IChaosEnergyStorage>
+
+		class ChaosEnergyStorageMessageHandler : IMessageHandler<ChaosEnergyStorageMessage, IMessage> {
+			override fun onMessage(message: ChaosEnergyStorageMessage?, ctx: MessageContext?): IMessage? {
+				val minecraft = Minecraft.getMinecraft()
+				val world = minecraft.world
+
+				if (!world.isRemote) return null
+
+				minecraft.addScheduledTask {
+					if (message !is ChaosEnergyStorageMessage || message.identifier != 1 ||
+					    !world.isBlockLoaded(message.blockPos)) return@addScheduledTask
+
+					(world.getTileEntity(message.blockPos) as? ChaosEnergyUserTileEntity)
+						?.getCapability(capChaosEnergyStorage, null)
+						?.let {
+							it.chaosEnergyStored = message.chaosEnergyStored
+							it.chaosEnergyCapacity = message.chaosEnergyStored
+						}
+				}
+
+				return null
+			}
+		}
+
+		init {
+			networkChannel.registerMessage(
+				ChaosEnergyStorageMessageHandler::class.java,
+				ChaosEnergyStorageMessage::class.java,
+				Chaos.NetworkDiscriminators.ChaosEnergyStorage.ordinal,
+				Side.CLIENT
+			)
+		}
 	}
 
 	private val chaosEnergyStorage = ChaosEnergyStorage()
@@ -75,38 +107,8 @@ open class ChaosEnergyUserTileEntity(
 		sendEnergyStorageMessage()
 	}
 
-	class ChaosEnergyStorageMessageHandler : IMessageHandler<ChaosEnergyStorageMessage, IMessage> {
-		override fun onMessage(message: ChaosEnergyStorageMessage?, ctx: MessageContext?): IMessage? {
-			val minecraft = Minecraft.getMinecraft()
-			val world = minecraft.world
-
-			if (!world.isRemote) return null
-
-			minecraft.addScheduledTask {
-				if (message !is ChaosEnergyStorageMessage || message.identifier != 1 ||
-				    !world.isBlockLoaded(message.blockPos)) return@addScheduledTask
-
-				(world.getTileEntity(message.blockPos) as? ChaosEnergyUserTileEntity)
-					?.getCapability(capChaosEnergyStorage, null)
-					?.let {
-						it.chaosEnergyStored = message.chaosEnergyStored
-						it.chaosEnergyCapacity = message.chaosEnergyStored
-					}
-			}
-
-			return null
-		}
-	}
-
 	override fun onLoad() {
 		super.onLoad()
-
-		networkChannel.registerMessage(
-			ChaosEnergyStorageMessageHandler::class.java,
-			ChaosEnergyStorageMessage::class.java,
-			Chaos.NetworkDiscriminators.ChaosEnergyStorage.ordinal,
-			Side.CLIENT
-		)
 
 		if (!world.isRemote) {
 			updateEnergyVariables()

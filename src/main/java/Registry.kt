@@ -1,12 +1,10 @@
 package com.famous5000.chaos
 
+import com.famous5000.chaos.blocks.ChaosBlock
 import com.famous5000.chaos.blocks.ChaosInfuserT0Block
 import com.famous5000.chaos.capability.ChaosEnergyStorage
 import com.famous5000.chaos.interfaces.IItemHasSubtypes
-import com.famous5000.chaos.items.ChaosFragmentItem
-import com.famous5000.chaos.items.ChaosInfuserT0ItemBlock
-import com.famous5000.chaos.items.ChaosIngotItem
-import com.famous5000.chaos.items.ChaosStarItem
+import com.famous5000.chaos.items.*
 import com.famous5000.chaos.tileentities.ChaosInfuserT0TileEntity
 import net.minecraft.block.Block
 import net.minecraft.client.renderer.block.model.ModelResourceLocation
@@ -28,13 +26,15 @@ object Registry {
 			ChaosStarItem,
 			ChaosFragmentItem,
 			ChaosInfuserT0ItemBlock,
-			ChaosIngotItem
+			ChaosIngotItem,
+			ChaosBlockItem
 		)
 	}
 
 	private val blocks by lazy {
 		arrayListOf(
-			ChaosInfuserT0Block
+			ChaosInfuserT0Block,
+			ChaosBlock
 		)
 	}
 
@@ -74,9 +74,7 @@ object Registry {
 	@JvmStatic
 	@SubscribeEvent
 	fun registerRenders(event: ModelRegistryEvent) {
-		for (index in items.indices) {
-			val item = items[index]
-
+		for (item in items) {
 			if (item is IItemHasSubtypes) {
 				for ((metadata, resourceLocation) in item.getAllModels()) {
 					registerModel(item, metadata, resourceLocation)

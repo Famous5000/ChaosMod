@@ -8,25 +8,25 @@
 			"predicate" : {
 				"famous5000chaos:chaos_fragment" : 0.25
 			},
-			"model"     : "famous5000chaos:item/chaos_fragment_1"
+			"model"     : "famous5000chaos:item/chaos_fragments/chaos_fragment_1"
 		},
 		{
 			"predicate" : {
 				"famous5000chaos:chaos_fragment" : 0.5
 			},
-			"model"     : "famous5000chaos:item/chaos_fragment_2"
+			"model"     : "famous5000chaos:item/chaos_fragments/chaos_fragment_2"
 		},
 		{
 			"predicate" : {
 				"famous5000chaos:chaos_fragment" : 0.75
 			},
-			"model"     : "famous5000chaos:item/chaos_fragment_3"
+			"model"     : "famous5000chaos:item/chaos_fragments/chaos_fragment_3"
 		},
 		{
 			"predicate" : {
 				"famous5000chaos:chaos_fragment" : 1
 			},
-			"model"     : "famous5000chaos:item/chaos_fragment_4"
+			"model"     : "famous5000chaos:item/chaos_fragments/chaos_fragment_4"
 		}
 	]
 }
