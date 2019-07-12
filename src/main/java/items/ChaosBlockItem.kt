@@ -6,9 +6,7 @@ import com.famous5000.chaos.enums.ChaosTier
 import com.famous5000.chaos.interfaces.IItemHasChaosTier
 import com.famous5000.chaos.interfaces.IItemHasSubtypes
 import com.famous5000.chaos.modid
-import net.minecraft.creativetab.CreativeTabs
 import net.minecraft.item.ItemStack
-import net.minecraft.util.NonNullList
 import net.minecraft.util.ResourceLocation
 
 object ChaosBlockItem : ItemRegistriedBlock(ChaosBlock), IItemHasSubtypes, IItemHasChaosTier {
@@ -20,14 +18,6 @@ object ChaosBlockItem : ItemRegistriedBlock(ChaosBlock), IItemHasSubtypes, IItem
 
 	override fun getUnlocalizedName(stack: ItemStack): String {
 		return super.getUnlocalizedName() + "_t${stack.metadata}"
-	}
-
-	override fun getSubItems(tab: CreativeTabs, items: NonNullList<ItemStack>) {
-		if (this.isInCreativeTab(tab)) {
-			for (chaosTier in ChaosTier.values()) {
-				items.add(ItemStack(this, 1, chaosTier.ordinal))
-			}
-		}
 	}
 
 	override fun getMetadata(metadata: Int) = metadata
