@@ -25,16 +25,19 @@ object Registry {
 		arrayListOf(
 			ChaosStarItem,
 			ChaosFragmentItem,
-			ChaosInfuserT0ItemBlock,
+
 			ChaosIngotItem,
-			ChaosBlockItem
+			ChaosNuggetItem,
+
+			ChaosBlockItem,
+			ChaosInfuserT0ItemBlock
 		)
 	}
 
 	private val blocks by lazy {
 		arrayListOf(
-			ChaosInfuserT0Block,
-			ChaosBlock
+			ChaosBlock,
+			ChaosInfuserT0Block
 		)
 	}
 
