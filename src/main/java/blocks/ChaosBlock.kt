@@ -34,8 +34,11 @@ object ChaosBlock : Block(Material.IRON), IBlockHasChaosTier {
 	override fun getChaosTier(blockState: IBlockState): ChaosTier = blockState.getValue(PropertyChaosTier)
 	override fun getMetaFromState(state: IBlockState) = state.getValue(PropertyChaosTier).ordinal
 
-	override fun getStateFromMeta(meta: Int) =
-		defaultState.withProperty(PropertyChaosTier, ChaosTier.values().find { it.ordinal == meta }!!)
+	override fun getStateFromMeta(meta: Int): IBlockState =
+		defaultState.withProperty(
+			PropertyChaosTier,
+			ChaosTier.values().find { it.ordinal == meta } ?: ChaosTier.T0
+		)
 
 	override fun getStateForPlacement(world: World, pos: BlockPos, facing: EnumFacing,
 	                                  hitX: Float, hitY: Float, hitZ: Float,

@@ -6,6 +6,7 @@ import com.famous5000.chaos.enums.ChaosTier
 import com.famous5000.chaos.interfaces.IItemHasChaosTier
 import com.famous5000.chaos.interfaces.IItemHasSubtypes
 import com.famous5000.chaos.modid
+import net.minecraft.item.EnumRarity
 import net.minecraft.item.ItemStack
 import net.minecraft.util.ResourceLocation
 
@@ -14,7 +15,8 @@ object ChaosBlockItem : ItemRegistriedBlock(ChaosBlock), IItemHasSubtypes, IItem
 		hasSubtypes = true
 	}
 
-	override fun getRarity(stack: ItemStack) = getChaosTier(stack).rarity
+	override fun getRarity(stack: ItemStack) =
+		getChaosTier(stack)?.rarity ?: EnumRarity.COMMON
 
 	override fun getUnlocalizedName(stack: ItemStack): String {
 		return super.getUnlocalizedName() + "_t${stack.metadata}"

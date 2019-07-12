@@ -20,7 +20,8 @@ object ChaosNuggetItem : Item(), IItemHasSubtypes, IItemHasChaosTier {
 		creativeTab = ChaosTab
 	}
 
-	override fun getRarity(stack: ItemStack): EnumRarity = getChaosTier(stack).rarity
+	override fun getRarity(stack: ItemStack): EnumRarity =
+		getChaosTier(stack)?.rarity ?: EnumRarity.COMMON
 
 	override fun getUnlocalizedName(stack: ItemStack): String {
 		return super.getUnlocalizedName() + "_t${stack.metadata}"
