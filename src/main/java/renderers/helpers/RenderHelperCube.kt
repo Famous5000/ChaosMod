@@ -71,18 +71,54 @@ class RenderHelperCube(
 	 * i.e. north is negative Z, east is positive X, and so on. This will only
 	 * take effect once [vertices are regenerated][regenerateVertices].
 	 *
+	 * @param xFaces Sets west and east faces for you. Overrides other arguments.
+	 * @param yFaces Sets top and bottom faces for you. Overrides other arguments.
+	 * @param zFaces Sets north and south faces for you. Overrides other arguments.
+	 * @param sideFaces Sets X and Z faces for you. Overrides other arguments.
 	 * @return This shape, for chaining.
 	 * @see regenerateVertices
 	 */
 	fun setFacesEnabled(topFace: Boolean? = null, bottomFace: Boolean? = null,
 	                    northFace: Boolean? = null, southFace: Boolean? = null,
-	                    westFace: Boolean? = null, eastFace: Boolean? = null): RenderHelperCube {
+	                    westFace: Boolean? = null, eastFace: Boolean? = null,
+	                    xFaces: Boolean? = null, yFaces: Boolean? = null,
+	                    zFaces: Boolean? = null, sideFaces: Boolean? = null): RenderHelperCube {
 		topFace?.let { this.topFace = it }
 		bottomFace?.let { this.bottomFace = it }
 		northFace?.let { this.northFace = it }
 		southFace?.let { this.southFace = it }
 		westFace?.let { this.westFace = it }
 		eastFace?.let { this.eastFace = it }
+
+		xFaces?.let {
+			setFacesEnabled(
+				westFace = it,
+				eastFace = it
+			)
+		}
+
+		yFaces?.let {
+			setFacesEnabled(
+				topFace = it,
+				bottomFace = it
+			)
+		}
+
+		zFaces?.let {
+			setFacesEnabled(
+				northFace = it,
+				southFace = it
+			)
+		}
+
+		sideFaces?.let {
+			setFacesEnabled(
+				northFace = it,
+				southFace = it,
+				westFace = it,
+				eastFace = it
+			)
+		}
 
 		return this
 	}
@@ -92,6 +128,10 @@ class RenderHelperCube(
 	 * anything. See [RenderHelperFace.setUV] and [RenderHelperUV] for more
 	 * info. Needs a call to [regenerateVertices] to take effect.
 	 *
+	 * @param xFacesUV Sets west and east faces for you. Overrides other arguments.
+	 * @param yFacesUV Sets top and bottom faces for you. Overrides other arguments.
+	 * @param zFacesUV Sets north and south faces for you. Overrides other arguments.
+	 * @param sideFacesUV Sets X and Z faces for you. Overrides other arguments.
 	 * @return This shape, for chaining.
 	 * @see RenderHelperFace.setUV
 	 * @see RenderHelperUV
@@ -99,13 +139,45 @@ class RenderHelperCube(
 	 */
 	fun setFacesUV(topFaceUV: RenderHelperUV? = null, bottomFaceUV: RenderHelperUV? = null,
 	               northFaceUV: RenderHelperUV? = null, southFaceUV: RenderHelperUV? = null,
-	               westFaceUV: RenderHelperUV? = null, eastFaceUV: RenderHelperUV? = null): RenderHelperCube {
+	               westFaceUV: RenderHelperUV? = null, eastFaceUV: RenderHelperUV? = null,
+	               xFacesUV: RenderHelperUV? = null, yFacesUV: RenderHelperUV? = null,
+	               zFacesUV: RenderHelperUV? = null, sideFacesUV: RenderHelperUV? = null): RenderHelperCube {
 		topFaceUV?.let { this.topFaceUV = it }
 		bottomFaceUV?.let { this.bottomFaceUV = it }
 		northFaceUV?.let { this.northFaceUV = it }
 		southFaceUV?.let { this.southFaceUV = it }
 		westFaceUV?.let { this.westFaceUV = it }
 		eastFaceUV?.let { this.eastFaceUV = it }
+
+		xFacesUV?.let {
+			setFacesUV(
+				westFaceUV = it,
+				eastFaceUV = it
+			)
+		}
+
+		yFacesUV?.let {
+			setFacesUV(
+				topFaceUV = it,
+				bottomFaceUV = it
+			)
+		}
+
+		zFacesUV?.let {
+			setFacesUV(
+				northFaceUV = it,
+				southFaceUV = it
+			)
+		}
+
+		sideFacesUV?.let {
+			setFacesUV(
+				northFaceUV = it,
+				southFaceUV = it,
+				westFaceUV = it,
+				eastFaceUV = it
+			)
+		}
 
 		return this
 	}
@@ -115,6 +187,10 @@ class RenderHelperCube(
 	 * the inside of the cube. These faces must be enabled for them to do
 	 * anything. Needs a call to [regenerateVertices] to take effect.
 	 *
+	 * @param xFacesDoubleSided Sets west and east sides for you. Overrides other arguments.
+	 * @param yFacesDoubleSided Sets top and bottom sides for you. Overrides other arguments.
+	 * @param zFacesDoubleSided Sets north and south sides for you. Overrides other arguments.
+	 * @param sideFacesDoubleSided Sets X and Z faces for you. Overrides other arguments.
 	 * @return This shape, for chaining.
 	 * @see RenderHelperFace.setDoubleSided
 	 * @see regenerateVertices
@@ -124,13 +200,47 @@ class RenderHelperCube(
 	                        northFaceDoubleSided: Boolean? = null,
 	                        southFaceDoubleSided: Boolean? = null,
 	                        westFaceDoubleSided: Boolean? = null,
-	                        eastFaceDoubleSided: Boolean? = null): RenderHelperCube {
+	                        eastFaceDoubleSided: Boolean? = null,
+	                        xFacesDoubleSided: Boolean? = null,
+	                        yFacesDoubleSided: Boolean? = null,
+	                        zFacesDoubleSided: Boolean? = null,
+	                        sideFacesDoubleSided: Boolean? = null): RenderHelperCube {
 		topFaceDoubleSided?.let { this.topFaceDoubleSided = it }
 		bottomFaceDoubleSided?.let { this.bottomFaceDoubleSided = it }
 		northFaceDoubleSided?.let { this.northFaceDoubleSided = it }
 		southFaceDoubleSided?.let { this.southFaceDoubleSided = it }
 		westFaceDoubleSided?.let { this.westFaceDoubleSided = it }
 		eastFaceDoubleSided?.let { this.eastFaceDoubleSided = it }
+
+		xFacesDoubleSided?.let {
+			setFacesDoubleSided(
+				westFaceDoubleSided = it,
+				eastFaceDoubleSided = it
+			)
+		}
+
+		yFacesDoubleSided?.let {
+			setFacesDoubleSided(
+				topFaceDoubleSided = it,
+				bottomFaceDoubleSided = it
+			)
+		}
+
+		zFacesDoubleSided?.let {
+			setFacesDoubleSided(
+				northFaceDoubleSided = it,
+				southFaceDoubleSided = it
+			)
+		}
+
+		sideFacesDoubleSided?.let {
+			setFacesDoubleSided(
+				northFaceDoubleSided = it,
+				southFaceDoubleSided = it,
+				westFaceDoubleSided = it,
+				eastFaceDoubleSided = it
+			)
+		}
 
 		return this
 	}

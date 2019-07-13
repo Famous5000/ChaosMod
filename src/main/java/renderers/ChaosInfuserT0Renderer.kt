@@ -39,34 +39,14 @@ object ChaosInfuserT0Renderer : TileEntitySpecialRenderer<ChaosInfuserT0TileEnti
 			0.25,
 			1.0 / 16
 		)
-			.setFacesEnabled(
-				topFace = false,
-				bottomFace = false
-			)
+			.setFacesEnabled(yFaces = false)
 			.setFacesUV(
-				northFaceUV = RenderHelperUV(
-					v = totalTicks / 20 % 1,
-					vw = 4.0
-				),
-				southFaceUV = RenderHelperUV(
-					v = totalTicks / 20 % 1,
-					vw = 4.0
-				),
-				eastFaceUV = RenderHelperUV(
-					v = totalTicks / 20 % 1,
-					vw = 4.0
-				),
-				westFaceUV = RenderHelperUV(
+				sideFacesUV = RenderHelperUV(
 					v = totalTicks / 20 % 1,
 					vw = 4.0
 				)
 			)
-			.setFacesDoubleSided(
-				northFaceDoubleSided = true,
-				southFaceDoubleSided = true,
-				eastFaceDoubleSided = true,
-				westFaceDoubleSided = true
-			)
+			.setFacesDoubleSided(sideFacesDoubleSided = true)
 			.regenerateVertices()
 			.rotateCenterY(Math.toRadians(totalTicks * 2))
 			.drawVerticesTo(bufferBuilder)
