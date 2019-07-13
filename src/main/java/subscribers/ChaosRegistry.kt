@@ -6,6 +6,7 @@ import com.famous5000.chaos.capability.ChaosEnergyStorage
 import com.famous5000.chaos.interfaces.IItemHasSubtypes
 import com.famous5000.chaos.items.*
 import com.famous5000.chaos.modid
+import com.famous5000.chaos.renderers.ChaosInfuserT0Renderer
 import com.famous5000.chaos.tileentities.ChaosInfuserT0TileEntity
 import net.minecraft.block.Block
 import net.minecraft.client.renderer.block.model.ModelResourceLocation
@@ -14,10 +15,12 @@ import net.minecraft.util.ResourceLocation
 import net.minecraftforge.client.event.ModelRegistryEvent
 import net.minecraftforge.client.model.ModelLoader
 import net.minecraftforge.event.RegistryEvent
+import net.minecraftforge.fml.client.registry.ClientRegistry
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import net.minecraftforge.fml.common.registry.GameRegistry
+import net.minecraftforge.fml.relauncher.Side
 
 @Suppress("unused")
 @Mod.EventBusSubscriber(modid = modid)
@@ -51,6 +54,12 @@ object ChaosRegistry {
 	private val capabilities by lazy {
 		arrayListOf(
 			ChaosEnergyStorage
+		)
+	}
+
+	private val specialRenderers by lazy {
+		mapOf(
+			ChaosInfuserT0TileEntity::class.java to ChaosInfuserT0Renderer
 		)
 	}
 
@@ -104,7 +113,21 @@ object ChaosRegistry {
 		}
 	}
 
+	@Suppress("unused_parameter")
+	private fun registerSpecialRenderers(event: FMLPreInitializationEvent) {
+		for ((tileEntityClass, specialRendererInstance) in specialRenderers) {
+			ClientRegistry.bindTileEntitySpecialRenderer(
+				tileEntityClass,
+				specialRendererInstance
+			)
+		}
+	}
+
 	fun onPreInit(event: FMLPreInitializationEvent) {
 		registerCapabilities(event)
+
+		if (event.side == Side.CLIENT) {
+			registerSpecialRenderers(event)
+		}
 	}
 }
