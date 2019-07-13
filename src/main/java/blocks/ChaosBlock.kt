@@ -34,12 +34,14 @@ object ChaosBlock : Block(Material.IRON), IBlockHasChaosTier {
 	override fun getChaosTier(blockState: IBlockState): ChaosTier = blockState.getValue(PropertyChaosTier)
 	override fun getMetaFromState(state: IBlockState) = state.getValue(PropertyChaosTier).ordinal
 
+	@Suppress("overridingDeprecatedMember")
 	override fun getStateFromMeta(meta: Int): IBlockState =
 		defaultState.withProperty(
 			PropertyChaosTier,
 			ChaosTier.values().find { it.ordinal == meta } ?: ChaosTier.T0
 		)
 
+	@Suppress("deprecation")
 	override fun getStateForPlacement(world: World, pos: BlockPos, facing: EnumFacing,
 	                                  hitX: Float, hitY: Float, hitZ: Float,
 	                                  meta: Int, placer: EntityLivingBase,

@@ -16,6 +16,7 @@ class ChaosEnergyStorageMessage : IMessage {
 		chaosEnergyCapacity = chaosEnergyStorage.chaosEnergyCapacity
 	}
 
+	@Suppress("unused")
 	constructor()
 
 	constructor(chaosEnergyStorage: ChaosEnergyStorage) {

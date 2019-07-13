@@ -22,14 +22,18 @@ object ChaosInfuserT0Block : Block(Material.ROCK) {
 		setCreativeTab(ChaosTab)
 	}
 
+	@Suppress("overridingDeprecatedMember")
 	override fun isOpaqueCube(state: IBlockState) = false
 
+	@Suppress("overridingDeprecatedMember")
 	override fun isFullCube(state: IBlockState) = false
 
+	@Suppress("overridingDeprecatedMember")
 	override fun getBlockFaceShape(worldIn: IBlockAccess, state: IBlockState, pos: BlockPos, face: EnumFacing) =
 		if (face == EnumFacing.DOWN) BlockFaceShape.SOLID
 		else BlockFaceShape.UNDEFINED
 
+	@Suppress("overridingDeprecatedMember")
 	override fun getBoundingBox(state: IBlockState, source: IBlockAccess, pos: BlockPos): AxisAlignedBB {
 		return AxisAlignedBB(.0, .0, .0, 1.0, .75, 1.0)
 	}
