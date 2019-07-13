@@ -19,12 +19,6 @@ class ChaosEnergyStorageMessage : IMessage {
 	@Suppress("unused")
 	constructor()
 
-	constructor(chaosEnergyStorage: ChaosEnergyStorage) {
-		identifier = 0
-
-		useChaosEnergyStorage(chaosEnergyStorage)
-	}
-
 	constructor(blockPos: BlockPos, chaosEnergyStorage: ChaosEnergyStorage) {
 		identifier = 1
 
