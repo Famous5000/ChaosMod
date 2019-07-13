@@ -8,8 +8,8 @@ import net.minecraftforge.common.capabilities.Capability
 import net.minecraftforge.common.capabilities.CapabilityManager
 
 open class ChaosEnergyStorage(
-	override var chaosEnergyCapacity: Int = 0,
-	override var chaosEnergyStored: Int = 0
+	override var chaosEnergyStored: Int = 0,
+	override var chaosEnergyCapacity: Int = 0
 ) : IChaosEnergyStorage {
 	companion object : IRegistersSelf {
 		override fun register() {
