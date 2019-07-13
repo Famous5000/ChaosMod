@@ -1,0 +1,23 @@
+{
+	"type"    : "minecraft:crafting_shaped",
+	"pattern" : [
+		"GGG",
+		"N N",
+		"SSS"
+	],
+	"key"     : {
+		"S" : {
+			"item" : "minecraft:stone_slab"
+		},
+		"N" : {
+			"item" : "famous5000chaos:chaos_nugget",
+			"data" : 0
+		},
+		"G" : {
+			"item" : "minecraft:gold_ingot"
+		}
+	},
+	"result"  : {
+		"item" : "famous5000:chaos_infuser_t0"
+	}
+}
