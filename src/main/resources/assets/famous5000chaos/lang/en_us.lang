@@ -3,24 +3,8 @@ itemGroup.famous5000chaos=Chaos
 item.famous5000chaos.chaos_star.name=Chaos Star
 item.famous5000chaos.chaos_fragment.name=Chaos Fragment
 
-item.famous5000chaos.chaos_ingot_t0.name=Chaos Ingot (Tier 0)
-item.famous5000chaos.chaos_ingot_t1.name=Chaos Ingot (Tier 1)
-item.famous5000chaos.chaos_ingot_t2.name=Chaos Ingot (Tier 2)
-item.famous5000chaos.chaos_ingot_t3.name=Chaos Ingot (Tier 3)
-item.famous5000chaos.chaos_ingot_t4.name=Chaos Ingot (Tier 4)
-item.famous5000chaos.chaos_ingot_t5.name=Chaos Ingot (Tier 5)
-
-item.famous5000chaos.chaos_nugget_t0.name=Chaos Nugget (Tier 0)
-item.famous5000chaos.chaos_nugget_t1.name=Chaos Nugget (Tier 1)
-item.famous5000chaos.chaos_nugget_t2.name=Chaos Nugget (Tier 2)
-item.famous5000chaos.chaos_nugget_t3.name=Chaos Nugget (Tier 3)
-item.famous5000chaos.chaos_nugget_t4.name=Chaos Nugget (Tier 4)
-item.famous5000chaos.chaos_nugget_t5.name=Chaos Nugget (Tier 5)
+item.famous5000chaos.chaos_ingot.name=Chaos Ingot (Tier %d)
+item.famous5000chaos.chaos_nugget.name=Chaos Nugget (Tier %d)
+tile.famous5000chaos.chaos_block.name=Chaos Block (Tier %d)
 
 tile.famous5000chaos.chaos_infuser_t0.name=Chaos Infuser (Tier 0)
-tile.famous5000chaos.chaos_block_t0.name=Chaos Block (Tier 0)
-tile.famous5000chaos.chaos_block_t1.name=Chaos Block (Tier 1)
-tile.famous5000chaos.chaos_block_t2.name=Chaos Block (Tier 2)
-tile.famous5000chaos.chaos_block_t3.name=Chaos Block (Tier 3)
-tile.famous5000chaos.chaos_block_t4.name=Chaos Block (Tier 4)
-tile.famous5000chaos.chaos_block_t5.name=Chaos Block (Tier 5)

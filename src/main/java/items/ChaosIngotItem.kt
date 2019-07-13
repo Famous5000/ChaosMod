@@ -5,6 +5,7 @@ import com.famous5000.chaos.enums.ChaosTier
 import com.famous5000.chaos.interfaces.IItemHasChaosTier
 import com.famous5000.chaos.interfaces.IItemHasSubtypes
 import com.famous5000.chaos.modid
+import net.minecraft.client.resources.I18n
 import net.minecraft.creativetab.CreativeTabs
 import net.minecraft.item.EnumRarity
 import net.minecraft.item.Item
@@ -23,9 +24,8 @@ object ChaosIngotItem : Item(), IItemHasSubtypes, IItemHasChaosTier {
 	override fun getRarity(stack: ItemStack): EnumRarity =
 		getChaosTier(stack)?.rarity ?: EnumRarity.COMMON
 
-	override fun getUnlocalizedName(stack: ItemStack): String {
-		return super.getUnlocalizedName() + "_t${stack.metadata}"
-	}
+	override fun getItemStackDisplayName(stack: ItemStack): String =
+		I18n.format("${this.unlocalizedName}.name", stack.metadata)
 
 	override fun getSubItems(tab: CreativeTabs, items: NonNullList<ItemStack>) {
 		if (this.isInCreativeTab(tab)) {
