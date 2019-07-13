@@ -25,7 +25,9 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext
 import net.minecraftforge.fml.relauncher.Side
 
 open class ChaosEnergyUserTileEntity(
-	private val chaosTier: ChaosTier
+	private val chaosTier: ChaosTier,
+	private var chaosEnergyStored: Int = 0,
+	private var chaosEnergyCapacity: Int = 0
 ) : TileEntity(), ITickable, IWailaDataProvider, ITileEntityHasChaosTier {
 	companion object {
 		@JvmStatic
@@ -37,11 +39,10 @@ open class ChaosEnergyUserTileEntity(
 				val minecraft = Minecraft.getMinecraft()
 				val world = minecraft.world
 
-				if (!world.isRemote) return null
+				if (!world.isRemote || message !is ChaosEnergyStorageMessage) return null
 
 				minecraft.addScheduledTask {
-					if (message !is ChaosEnergyStorageMessage || message.identifier != 1 ||
-					    !world.isBlockLoaded(message.blockPos)) return@addScheduledTask
+					if (!world.isBlockLoaded(message.blockPos)) return@addScheduledTask
 
 					(world.getTileEntity(message.blockPos) as? ChaosEnergyUserTileEntity)
 						?.getCapability(capChaosEnergyStorage, null)
@@ -65,9 +66,7 @@ open class ChaosEnergyUserTileEntity(
 		}
 	}
 
-	private val chaosEnergyStorage = ChaosEnergyStorage()
-	private var chaosEnergyStored = 0
-	private var chaosEnergyCapacity = 0
+	private val chaosEnergyStorage = ChaosEnergyStorage(chaosEnergyStored, chaosEnergyCapacity)
 
 	override fun hasCapability(capability: Capability<*>, facing: EnumFacing?) =
 		capability == capChaosEnergyStorage

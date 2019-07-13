@@ -7,7 +7,10 @@ import net.minecraft.util.EnumFacing
 import net.minecraftforge.common.capabilities.Capability
 import net.minecraftforge.common.capabilities.CapabilityManager
 
-open class ChaosEnergyStorage : IChaosEnergyStorage {
+open class ChaosEnergyStorage(
+	override var chaosEnergyCapacity: Int = 0,
+	override var chaosEnergyStored: Int = 0
+) : IChaosEnergyStorage {
 	companion object : IRegistersSelf {
 		override fun register() {
 			CapabilityManager.INSTANCE.register(
@@ -28,9 +31,6 @@ open class ChaosEnergyStorage : IChaosEnergyStorage {
 			) { ChaosEnergyStorage() }
 		}
 	}
-
-	override var chaosEnergyCapacity = 0
-	override var chaosEnergyStored = 0
 
 	override fun getEnergyStored() = chaosEnergyStored
 	override fun getMaxEnergyStored(): Int = chaosEnergyCapacity
