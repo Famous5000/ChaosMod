@@ -7,7 +7,8 @@
 	],
 	"key"     : {
 		"S" : {
-			"item" : "minecraft:stone_slab"
+			"item" : "minecraft:stone_slab",
+			"data" : 0
 		},
 		"N" : {
 			"item" : "famous5000chaos:chaos_nugget",
