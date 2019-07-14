@@ -82,7 +82,8 @@ class RenderHelperCube(
 	                    northFace: Boolean? = null, southFace: Boolean? = null,
 	                    westFace: Boolean? = null, eastFace: Boolean? = null,
 	                    xFaces: Boolean? = null, yFaces: Boolean? = null,
-	                    zFaces: Boolean? = null, sideFaces: Boolean? = null): RenderHelperCube {
+	                    zFaces: Boolean? = null, sideFaces: Boolean? = null,
+	                    allFaces: Boolean? = null): RenderHelperCube {
 		topFace?.let { this.topFace = it }
 		bottomFace?.let { this.bottomFace = it }
 		northFace?.let { this.northFace = it }
@@ -113,10 +114,16 @@ class RenderHelperCube(
 
 		sideFaces?.let {
 			setFacesEnabled(
-				northFace = it,
-				southFace = it,
-				westFace = it,
-				eastFace = it
+				xFaces = it,
+				zFaces = it
+			)
+		}
+
+		allFaces?.let {
+			setFacesEnabled(
+				xFaces = it,
+				yFaces = it,
+				zFaces = it
 			)
 		}
 
@@ -132,6 +139,7 @@ class RenderHelperCube(
 	 * @param yFacesUV Sets top and bottom faces for you. Overrides other arguments.
 	 * @param zFacesUV Sets north and south faces for you. Overrides other arguments.
 	 * @param sideFacesUV Sets X and Z faces for you. Overrides other arguments.
+	 * @param allFacesUV Sets X, Y and Z faces for you. Overrides other arguments.
 	 * @return This shape, for chaining.
 	 * @see RenderHelperFace.setUV
 	 * @see RenderHelperUV
@@ -141,7 +149,8 @@ class RenderHelperCube(
 	               northFaceUV: RenderHelperUV? = null, southFaceUV: RenderHelperUV? = null,
 	               westFaceUV: RenderHelperUV? = null, eastFaceUV: RenderHelperUV? = null,
 	               xFacesUV: RenderHelperUV? = null, yFacesUV: RenderHelperUV? = null,
-	               zFacesUV: RenderHelperUV? = null, sideFacesUV: RenderHelperUV? = null): RenderHelperCube {
+	               zFacesUV: RenderHelperUV? = null, sideFacesUV: RenderHelperUV? = null,
+	               allFacesUV: RenderHelperUV? = null): RenderHelperCube {
 		topFaceUV?.let { this.topFaceUV = it }
 		bottomFaceUV?.let { this.bottomFaceUV = it }
 		northFaceUV?.let { this.northFaceUV = it }
@@ -172,10 +181,16 @@ class RenderHelperCube(
 
 		sideFacesUV?.let {
 			setFacesUV(
-				northFaceUV = it,
-				southFaceUV = it,
-				westFaceUV = it,
-				eastFaceUV = it
+				xFacesUV = it,
+				zFacesUV = it
+			)
+		}
+
+		allFacesUV?.let {
+			setFacesUV(
+				xFacesUV = it,
+				yFacesUV = it,
+				zFacesUV = it
 			)
 		}
 
@@ -191,6 +206,7 @@ class RenderHelperCube(
 	 * @param yFacesDoubleSided Sets top and bottom sides for you. Overrides other arguments.
 	 * @param zFacesDoubleSided Sets north and south sides for you. Overrides other arguments.
 	 * @param sideFacesDoubleSided Sets X and Z faces for you. Overrides other arguments.
+	 * @param allFacesDoubleSided Sets X, Y and Z faces for you. Overrides other arguments.
 	 * @return This shape, for chaining.
 	 * @see RenderHelperFace.setDoubleSided
 	 * @see regenerateVertices
@@ -204,7 +220,8 @@ class RenderHelperCube(
 	                        xFacesDoubleSided: Boolean? = null,
 	                        yFacesDoubleSided: Boolean? = null,
 	                        zFacesDoubleSided: Boolean? = null,
-	                        sideFacesDoubleSided: Boolean? = null): RenderHelperCube {
+	                        sideFacesDoubleSided: Boolean? = null,
+	                        allFacesDoubleSided: Boolean? = null): RenderHelperCube {
 		topFaceDoubleSided?.let { this.topFaceDoubleSided = it }
 		bottomFaceDoubleSided?.let { this.bottomFaceDoubleSided = it }
 		northFaceDoubleSided?.let { this.northFaceDoubleSided = it }
@@ -235,10 +252,16 @@ class RenderHelperCube(
 
 		sideFacesDoubleSided?.let {
 			setFacesDoubleSided(
-				northFaceDoubleSided = it,
-				southFaceDoubleSided = it,
-				westFaceDoubleSided = it,
-				eastFaceDoubleSided = it
+				xFacesDoubleSided = it,
+				zFacesDoubleSided = it
+			)
+		}
+
+		allFacesDoubleSided?.let {
+			setFacesDoubleSided(
+				xFacesDoubleSided = it,
+				yFacesDoubleSided = it,
+				zFacesDoubleSided = it
 			)
 		}
 

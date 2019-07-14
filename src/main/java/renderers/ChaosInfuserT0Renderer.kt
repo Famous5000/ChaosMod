@@ -8,6 +8,7 @@ import net.minecraft.client.renderer.Tessellator
 import net.minecraft.client.renderer.tileentity.TileEntityBeaconRenderer
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats
+import net.minecraft.util.math.MathHelper
 import org.lwjgl.opengl.GL11.GL_QUADS
 
 object ChaosInfuserT0Renderer : TileEntitySpecialRenderer<ChaosInfuserT0TileEntity>() {
@@ -33,7 +34,27 @@ object ChaosInfuserT0Renderer : TileEntitySpecialRenderer<ChaosInfuserT0TileEnti
 
 		RenderHelperCube(
 			x + 0.5,
-			y + 0.625,
+			y + 0.625 + 0.5,
+			z + 0.5,
+			1.5 / 16,
+			0.25 + 1,
+			1.5 / 16
+		)
+			.setFacesEnabled(yFaces = false)
+			.setFacesUV(
+				sideFacesUV = RenderHelperUV(
+					v = totalTicks / 2,
+					vw = 4.0 + 20
+				)
+			)
+			.setFacesDoubleSided(allFacesDoubleSided = true)
+			.regenerateVertices()
+			.rotateCenterY(Math.toRadians(totalTicks * 2))
+			.drawVerticesTo(bufferBuilder)
+
+		RenderHelperCube(
+			x + 0.5,
+			y + 0.875,
 			z + 0.5,
 			1.0 / 16,
 			0.25,
@@ -42,13 +63,46 @@ object ChaosInfuserT0Renderer : TileEntitySpecialRenderer<ChaosInfuserT0TileEnti
 			.setFacesEnabled(yFaces = false)
 			.setFacesUV(
 				sideFacesUV = RenderHelperUV(
-					v = totalTicks / 20 % 1,
-					vw = 4.0
+					v = -totalTicks / 5,
+					vw = 8.0
 				)
 			)
-			.setFacesDoubleSided(sideFacesDoubleSided = true)
+			.setFacesDoubleSided(allFacesDoubleSided = true)
 			.regenerateVertices()
+			.rotateX(y + 0.75, z + 0.5, Math.PI / 2)
+			.rotateCenterY(-Math.toRadians(totalTicks * 10))
+			.translateY(-1.0 / 32)
+			.drawVerticesTo(bufferBuilder)
+			.rotateCenterY(Math.PI / 2)
+			.drawVerticesTo(bufferBuilder)
+			.rotateCenterY(Math.PI / 2)
+			.drawVerticesTo(bufferBuilder)
+			.rotateCenterY(Math.PI / 2)
+			.drawVerticesTo(bufferBuilder)
+
+		RenderHelperCube(
+			x + 0.5,
+			y + 2 + MathHelper.sin(totalTicks.toFloat() / 20) / 5,
+			z + 0.5
+		)
+			.setFacesUV(allFacesUV = RenderHelperUV(v = totalTicks / 20))
+			.setFacesDoubleSided(allFacesDoubleSided = true)
+			.regenerateVertices()
+			.rotateCenterX(Math.toRadians(totalTicks * 2))
 			.rotateCenterY(Math.toRadians(totalTicks * 2))
+			.drawVerticesTo(bufferBuilder)
+
+		RenderHelperCube(
+			x + 0.5,
+			y + 2 + MathHelper.sin(totalTicks.toFloat() / 20) / 5,
+			z + 0.5
+		)
+			.setFacesUV(allFacesUV = RenderHelperUV(v = totalTicks / 20))
+			.setFacesDoubleSided(allFacesDoubleSided = true)
+			.regenerateVertices()
+			.rotateCenterZ(Math.PI / 4)
+			.rotateCenterY(-Math.toRadians(totalTicks * 2))
+			.rotateCenterZ(Math.toRadians(totalTicks * 2))
 			.drawVerticesTo(bufferBuilder)
 
 		tessellator.draw()
